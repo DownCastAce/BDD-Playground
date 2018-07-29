@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Specflow_BDD
+namespace Common_BDD
 {
 	public class NddCalculator
 	{

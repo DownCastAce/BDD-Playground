@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Specflow_BDD
+namespace Common_BDD
 {
 	public class Patient
 	{

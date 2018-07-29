@@ -1,6 +1,7 @@
 ﻿Feature: NDD Calculator
-	In order to send orders at the right time
-	I want to calculate the next delivery date for a patient
+	As an Client
+	I Want to send orders at the right time
+	So that I can calculate the next delivery date for a patient
 
 @ndd
 Scenario: Patient is stopped

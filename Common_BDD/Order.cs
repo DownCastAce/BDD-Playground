@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Specflow_BDD
+namespace Common_BDD
 {
 	public class Order
 	{

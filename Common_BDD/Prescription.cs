@@ -1,4 +1,4 @@
-﻿namespace Specflow_BDD
+﻿namespace Common_BDD
 {
 	public class Prescription
 	{
