@@ -31,8 +31,8 @@ namespace Specflow_BDD
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "NDD Calculator", "\tAs an Client\r\n\tI Want to send orders at the right time\r\n\tSo that I can calculate" +
-                    " the next delivery date for a patient", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "NDD Calculator", "\tAs a Client\r\n\tI Want to send orders at the right time\r\n\tSo that I can calculate " +
+                    "the next delivery date for a patient", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         

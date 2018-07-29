@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Common_BDD;
 using TestStack.BDDfy;
 using Xunit;
@@ -13,7 +9,7 @@ using Assert = NUnit.Framework.Assert;
 namespace BDDFY_BDD
 {
 	[Story(
-		AsA = "As an Client",
+		AsA = "As a Client",
 		IWant = "To send orders at the right time",
 		SoThat = "I can calculate the next delivery date for a patient"
 		)]

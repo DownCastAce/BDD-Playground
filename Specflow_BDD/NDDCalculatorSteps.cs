@@ -2,7 +2,7 @@
 using Common_BDD;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
-
+// ReSharper disable UnusedMember.Global
 // ReSharper disable InconsistentNaming
 
 namespace Specflow_BDD
@@ -22,19 +22,6 @@ namespace Specflow_BDD
         public void GivenThePatientStatusIs(string status)
         {
 	        patient.Status = status;
-        }
-        
-        [When(@"I recalculate the NDD")]
-        public void WhenIRecalculateTheNDD()
-        {
-            var nddCalc = new NddCalculator();
-	        patient = nddCalc.Calculate(patient);
-        }
-        
-        [Then(@"The patient NDD should be null")]
-        public void ThenThePatientNDDShouldBeNull()
-        {
-            Assert.IsNull(patient.NDD, "NDD expected to be null");
         }
 
 	    [Given(@"The patient NDD is set to today")]
@@ -62,8 +49,8 @@ namespace Specflow_BDD
 		    {
 			    patient.Prescriptions.Add(new Prescription
 			    {
-					Name = tableRow["title"],
-					Frequency = int.Parse(tableRow["frequency"])
+				    Name = tableRow["title"],
+				    Frequency = int.Parse(tableRow["frequency"])
 			    });
 		    }
 	    }
@@ -74,23 +61,38 @@ namespace Specflow_BDD
 		    patient.Orders.Clear();
 	    }
 
+
+	    [Given(@"The patient has previous orders")]
+	    public void GivenThePatientHasPreviousOrders(Table table)
+	    {
+		    foreach (var tableRow in table.Rows)
+		    {
+			    patient.Orders.Add(new Order
+			    {
+				    ProductId = tableRow["product_id"],
+				    Date = DateTime.Parse((tableRow["date"]))
+			    });
+		    }
+	    }
+
+		[When(@"I recalculate the NDD")]
+        public void WhenIRecalculateTheNDD()
+        {
+            var nddCalc = new NddCalculator();
+	        patient = nddCalc.Calculate(patient);
+        }
+        
+        [Then(@"The patient NDD should be null")]
+        public void ThenThePatientNDDShouldBeNull()
+        {
+            Assert.IsNull(patient.NDD, "NDD expected to be null");
+        }
+
 	    [Then(@"The patient NDD should be today")]
 	    public void ThenThePatientNDDShouldBeToday()
 	    {
 		    Assert.AreEqual(DateTime.Today, patient.NDD, "NDD is expected to equal today");
 	    }
 
-	    [Given(@"The patient has previous orders")]
-	    public void GivenThePatientHasPreviousOrders(Table table)
-	    {
-			foreach (var tableRow in table.Rows)
-			{
-				patient.Orders.Add(new Order
-				{
-					ProductId = tableRow["product_id"],
-					Date = DateTime.Parse((tableRow["date"]))
-				});
-			}
-		}
 	}
 }

@@ -1,5 +1,5 @@
 ﻿Feature: NDD Calculator
-	As an Client
+	As a Client
 	I Want to send orders at the right time
 	So that I can calculate the next delivery date for a patient
 
